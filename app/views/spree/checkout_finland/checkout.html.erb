@@ -1,0 +1,13 @@
+<h2>Siirrytään verkkopankkiin...</h2>
+
+<%= form_tag(@provider[:url], :id => 'checkout_finland_form', :remote => true) do %>
+  
+  <% @provider[:fields].each do |name, value| %>						
+		<%= hidden_field_tag name, value %>
+	<% end %>
+  				  
+<% end %>
+
+<script type="text/javascript">
+	document.getElementById("checkout_finland_form").submit();	
+</script>

@@ -1,0 +1,12 @@
+<div class="row">
+	<% Spree::Gateway::CheckoutFinland.banks(current_order).each do |bank| %>
+		<div class="col-md-3 col-sm-6 col-xs-6" style="margin-bottom: 40px;">
+			<div class="text-center">
+			<%= link_to(image_tag(bank[:icon]), checkout_finland_url(:provider => bank[:id]), :method => :post, :id => "checkout_finland_button") %>
+			</div>
+			<div class="text-center">
+				<%= bank[:name] %>
+			</div>
+		</div>		
+	<% end %>
+</div>
