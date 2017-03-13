@@ -1,5 +1,5 @@
 ---
-en:
+fi:
   spree:
     checkout_finland:
       already_refunded: "This payment has been refunded and no further action can be taken on it."

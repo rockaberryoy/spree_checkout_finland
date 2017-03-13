@@ -23,9 +23,9 @@ module Spree
     end
 
     def cancel
-      flash[:notice] = Spree.t('flash.cancel', scope: 'paypal')
+      flash[:notice] = Spree.t('flash.cancel', scope: 'checkout_finland')
       order = current_order || raise(ActiveRecord::RecordNotFound)
-      redirect_to checkout_state_path(order.state, paypal_cancel_token: params[:token])
+      redirect_to checkout_state_path(order.state, checkout_finland_cancel_token: params[:token])
     end
 
     private
@@ -41,20 +41,6 @@ module Spree
           },
           ItemCategory: "Physical"
       }
-    end
-
-    def express_checkout_request_details order, items
-      { SetExpressCheckoutRequestDetails: {
-          InvoiceID: order.number,
-          BuyerEmail: order.email,
-          ReturnURL: confirm_paypal_url(payment_method_id: params[:payment_method_id], utm_nooverride: 1),
-          CancelURL:  cancel_paypal_url,
-          SolutionType: payment_method.preferred_solution.present? ? payment_method.preferred_solution : "Mark",
-          LandingPage: payment_method.preferred_landing_page.present? ? payment_method.preferred_landing_page : "Billing",
-          cppheaderimage: payment_method.preferred_logourl.present? ? payment_method.preferred_logourl : "",
-          NoShipping: 1,
-          PaymentDetails: [payment_details(items)]
-      }}
     end
 
     def payment_method

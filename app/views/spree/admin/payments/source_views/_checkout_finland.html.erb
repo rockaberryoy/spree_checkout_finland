@@ -1,0 +1,35 @@
+<fieldset data-hook="checkout_finland">
+  <legend align="center"><%= Spree.t(:transaction, :scope => :checkout_finland) %></legend>
+
+  <div class="row">
+    <div class="alpha six columns">
+      <dl>
+        <dt><%= Spree.t(:payer_id, :scope => :checkout_finland) %>:</dt>
+        <dd><%= payment.source.payer_id %></dd>
+
+        <dt><%= Spree.t(:token, :scope => :checkout_finland) %>:</dt>
+        <dd><%= payment.source.token %></dd>
+
+        <dt><%= Spree.t(:transaction_id) %>:</dt>
+        <dd><%= payment.source.transaction_id %></dd>
+      </dl>
+    </div>
+
+    <% if payment.source.state != 'refunded' %>
+      <%= button_link_to Spree.t('actions.refund', scope: :checkout_finland), spree.checkout_finland_refund_admin_order_payment_path(@order, payment), icon: 'money' %>
+    <% else %>
+      <div class="alpha six columns">
+        <dl>
+          <dt><%= Spree.t(:state, :scope => :checkout_finland) %>:</dt>
+          <dd><%= payment.source.state.titleize %></dd>
+
+          <dt><%= Spree.t(:refunded_at, :scope => :checkout_finland) %>:</dt>
+          <dd><%= pretty_time(payment.source.refunded_at) %></dd>
+
+          <dt><%= Spree.t(:refund_transaction_id, :scope => :checkout_finland) %>:</dt>
+          <dd><%= payment.source.refund_transaction_id %></dd>
+        </dl>
+      </div>
+    <% end %>
+  </div>
+</fieldset>

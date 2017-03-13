@@ -3,7 +3,7 @@ module Spree
     before_filter :load_order
 
     def index
-      @payments = @order.payments.includes(:payment_method).where(:spree_payment_methods => { :type => "Spree::Gateway::PayPalExpress" })
+      @payments = @order.payments.includes(:payment_method).where(:spree_payment_methods => { :type => "Spree::Gateway::CheckoutFinland" })
     end
 
     private

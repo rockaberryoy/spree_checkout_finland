@@ -3,17 +3,17 @@
 <% content_for :page_title do %>
     / <%= link_to Spree.t(:payments), admin_order_payments_path(@order) %>
     / <%= payment_method_name(@payment) %>
-    / <%= Spree.t('refund', :scope => :paypal) %>
+    / <%= Spree.t('refund', :scope => :checkout_finland) %>
 <% end %>
 
 <%= form_tag paypal_refund_admin_order_payment_path(@order, @payment) do %>
   <div class="label-block left five columns alpha">
     <div>
       <fieldset data-hook="admin_variant_new_form">
-        <legend><%= Spree.t('refund', :scope => :paypal) %></legend>
+        <legend><%= Spree.t('refund', :scope => :checkout_finland) %></legend>
         <div class='form-group'>
-          <%= label_tag 'refund_amount', Spree.t(:refund_amount, :scope => 'paypal') %>
-          <small><em><%= Spree.t(:original_amount, :scope => 'paypal', :amount => @payment.display_amount) %></em></small><br>
+          <%= label_tag 'refund_amount', Spree.t(:refund_amount, :scope => 'checkout_finland') %>
+          <small><em><%= Spree.t(:original_amount, :scope => 'checkout_finland', :amount => @payment.display_amount) %></em></small><br>
         </div>
 
         <% currency = ::Money::Currency.new(Spree::Config[:currency]) %>
@@ -30,7 +30,7 @@
         </div>
 
         <div class="form-group">
-          <%= button Spree.t(:refund, scope: 'paypal'), 'money', class: 'btn btn-primary' %>
+          <%= button Spree.t(:refund, scope: 'checkout_finland'), 'money', class: 'btn btn-primary' %>
         </div>
       </fieldset>
     </div>
