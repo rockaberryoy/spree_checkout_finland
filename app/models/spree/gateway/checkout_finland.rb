@@ -56,8 +56,12 @@ class Spree::Gateway::CheckoutFinland < Spree::Gateway
     return banks
   end
 
+  def auto_capture?
+    true
+  end
+
   def source_required?
-    false
+    true
   end
   
   def provider_class    
@@ -65,17 +69,11 @@ class Spree::Gateway::CheckoutFinland < Spree::Gateway
   end
 
   def payment_source_class
-    puts "payment_source_class"
-    # Spree::CreditCard
     nil
   end
 
-  def method_type    
+  def method_type     
     'checkout_finland'
   end
 
-  def purchase(amount, transaction_details, options = {})
-    puts "purchase"
-    ActiveMerchant::Billing::Response.new(true, 'success', {}, {})
-  end
 end
