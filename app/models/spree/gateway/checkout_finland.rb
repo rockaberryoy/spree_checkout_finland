@@ -17,7 +17,11 @@ class Spree::Gateway::CheckoutFinland < Spree::Gateway
     address = order.billing_address.address1
     postcode = order.billing_address.zipcode
     postoffice = order.billing_address.city
-    email = order.user.email
+    email = ""
+    if order.user then
+      email = order.user.email
+    else
+    end
     phone = order.billing_address.phone
 
     @xml = %x(php lib/php/request.php #{reference} #{amount} #{first_name} #{last_name} #{address} #{postcode} #{postoffice} #{email} #{phone} 2>&1)    
