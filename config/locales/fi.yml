@@ -19,3 +19,7 @@ fi:
         cancel: "Tapahtuma peruttu"
         connection_failed: "Yhteysvirhe"
         generic_error: "Tapahtuma ei onnistunut %{reasons}"
+    # ?
+    paypal:
+      flash:
+        cancel: "Tapahtuma peruttu"

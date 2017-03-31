@@ -23,7 +23,7 @@ module Spree
     end
 
     def cancel
-      flash[:notice] = Spree.t('Tapahtuma peruttu')
+      flash[:notice] = Spree.t('flash.cancel', scope: 'checkout_finland')
       order = current_order || raise(ActiveRecord::RecordNotFound)
       redirect_to checkout_state_path(order.state, checkout_finland_cancel_token: params[:token])
     end
