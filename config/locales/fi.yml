@@ -1,21 +1,21 @@
 ---
 fi:
   spree:
-    checkout_finland:
-      already_refunded: "This payment has been refunded and no further action can be taken on it."
-      no_payment_via_admin_backend: "You cannot charge accounts through the admin backend at this time."
-      transaction: "Transaction"
-      payer_id: "Payer ID"
-      transaction_id: "Transaction ID"
+    checkout_finland:      
+      already_refunded: "Maksu on jo korvattu, eikä sitä voi muokata."      
+      no_payment_via_admin_backend: "Et voi veloittaa tiliä hallintapaneelin kautta."
+      transaction: "Tapahtuma"      
+      payer_id: "Maksajatunnus"      
+      transaction_id: "Tapahtumatunnus"
       token: "Token"
-      refund: "Refund"
-      refund_amount: "Amount"
-      original_amount: "Original amount: %{amount}"
-      refund_successful: "Refund successful"
-      refund_unsuccessful: "Refund unsuccessful"
+      refund: "Korvaus"
+      refund_amount: "Korvaussumma"
+      original_amount: "Alkuperäinen summa: %{amount}"
+      refund_successful: "Korvaus onnistui"
+      refund_unsuccessful: "Korvaus ei onnistunut"
       actions:
-        refund: "Refund"
+        refund: "Korvaa"
       flash:
-        cancel: "Transaction canceled"
-        connection_failed: "Could not connect"
-        generic_error: "Transaction failed %{reasons}"
+        cancel: "Tapahtuma peruttu"
+        connection_failed: "Yhteysvirhe"
+        generic_error: "Tapahtuma ei onnistunut %{reasons}"
