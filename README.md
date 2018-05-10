@@ -12,6 +12,4 @@ Checkout Finland payment options for Spree Commerce.
 
         bundle install
 
-4. Restart your server
-
-If your server was running, restart it so that it can find the assets properly.
+3. If your server was running, restart it so that it can find the assets properly.
