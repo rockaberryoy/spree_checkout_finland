@@ -14,4 +14,4 @@ Checkout Finland payment options for Spree Commerce.
 
 4. Restart your server
 
-        If your server was running, restart it so that it can find the assets properly.
+If your server was running, restart it so that it can find the assets properly.
